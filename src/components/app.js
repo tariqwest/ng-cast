@@ -12,10 +12,14 @@ angular.module('video-player')
     templateUrl: 'src/templates/app.html',
 
     restrict: 'E',
-    
+
     controllerAs: 'ctrl',
     
     bindToController: true,
+
+    scope: {
+      
+    },
 
     controller: function(youTube) {
 
@@ -34,6 +38,13 @@ angular.module('video-player')
           'max': 5
         }, this.searchResults.bind(this));
       };
+
+      this.searchByEnterKeyPress = function(keyEvent) {
+        // Enter key is # 13
+        if (keyEvent.which === 13){
+          this.search();
+        }
+      };
       
       this.videos = window.exampleVideoData;
       
@@ -42,6 +53,7 @@ angular.module('video-player')
       this.currentVideo = this.videos[0];
       
       this.selectVideo = function(video) {
+        console.log(video, this);
         this.currentVideo = video;
       };
 

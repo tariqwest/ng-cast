@@ -5,6 +5,12 @@ angular.module('video-player')
     templateUrl: 'src/templates/search.html',
     restrict: 'E',
     controllerAs: 'ctrl',
-    bindToController: true
+    bindToController: true,
+    controller: function(){},
+    scope: {
+      searchInput: '=',
+      searchByEnterKeyPress: '=',
+      search: '='
+    }
   };
 });

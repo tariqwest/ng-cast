@@ -5,5 +5,10 @@ angular.module('video-player')
     restrict: 'E',
     controllerAs: 'ctrl',
     bindToController: true,
+    controller: function(){},
+    scope: {
+      videos: '<',
+      onClick: '<',
+    }
   };
 });
