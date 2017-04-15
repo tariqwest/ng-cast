@@ -1,6 +1,6 @@
 angular.module('video-player')
 .service('youTube', ['$http', function($http){
-  this.search = function(options, $scope){
+  this.search = function(options, callback){
     var data = {
       part: 'snippet', 
       videoEmbeddable: 'true', 
@@ -16,11 +16,11 @@ angular.module('video-player')
       //data: data
     }).then(function successCallback(response) {
       console.log(response);
-      $scope.videos = response.data.items;
-      $scope.currentVideo = response.data.items[0];
+      callback(response.data.items);
+      //$scope.currentVideo = response.data.items[0];
 
     }, function errorCallback(response) {
-      console.log(response, $scope);
+      console.log(response, callback);
     });
   };
 

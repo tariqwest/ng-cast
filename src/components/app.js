@@ -8,29 +8,44 @@ angular.module('video-player')
 
 .directive('app', ['youTube', function() {
   return {
+
     templateUrl: 'src/templates/app.html',
+
+    restrict: 'E',
+    
     controllerAs: 'ctrl',
+    
     bindToController: true,
+
     controller: function(youTube) {
-      this.searchInput = '';
+
+      this.searchInput = 'cats';
+      
+      this.searchResults = function(videos){
+        this.videos = videos;
+        this.currentVideo = videos[0];
+      };
+
       this.search = function(){
         console.log(this.searchInput);
         youTube.search({
           'key': window.YOUTUBE_API_KEY,
           'query': this.searchInput,
           'max': 5
-        }, this);
+        }, this.searchResults.bind(this));
       };
-      this.videos = youTube.search({
-        'key': window.YOUTUBE_API_KEY,
-        'query': 'cats',
-        'max': 5
-      }, this); //window.exampleVideoData;
-      this.youtubeUrl = 'https://www.youtube.com/embed/';
-      this.currentVideo = null;
-      this.setCurrentVideo = function(video) {
+      
+      this.videos = window.exampleVideoData;
+      
+      //this.youtubeUrl = 'https://www.youtube.com/embed/';
+      
+      this.currentVideo = this.videos[0];
+      
+      this.selectVideo = function(video) {
         this.currentVideo = video;
       };
+
+      this.search();
     },
 
   };
