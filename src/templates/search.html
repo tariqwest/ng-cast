@@ -2,10 +2,10 @@
   <input 
   	class="form-control" 
   	type="text" 
-  	ng-keypress="ctrl.searchByEnterKeyPress($event)" 
+  	ng-keypress="ctrl.searchByEnterKeyPress($event, ctrl.result)" 
   	ng-model="ctrl.searchInput" 
   	ng-model-options="{ debounce: 500 }" />
-  <button ng-click="ctrl.search()" class="btn">
+  <button ng-click="ctrl.search(ctrl.result)" class="btn">
     <span class="glyphicon glyphicon-search"></span>
   </button>
 </div>

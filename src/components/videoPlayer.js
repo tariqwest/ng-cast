@@ -7,7 +7,7 @@ angular.module('video-player')
     bindToController: true,
     controller: function(){},
     scope: {
-      video: '='
+      video: '<'
     }
   };
 });

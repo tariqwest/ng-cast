@@ -15,9 +15,7 @@ angular.module('video-player')
       method: "GET",
       //data: data
     }).then(function successCallback(response) {
-      console.log(response);
       callback(response.data.items);
-      //$scope.currentVideo = response.data.items[0];
 
     }, function errorCallback(response) {
       console.log(response, callback);

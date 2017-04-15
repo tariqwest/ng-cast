@@ -8,7 +8,8 @@ angular.module('video-player')
     controller: function(){},
     scope: {
       video: '<',
-      onClick: '<'
+      onClick: '<',
+      currentVideo: '='
     }
   };
 });

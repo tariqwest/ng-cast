@@ -9,6 +9,7 @@ angular.module('video-player')
     scope: {
       videos: '<',
       onClick: '<',
+      currentVideo: '=',
     }
   };
 });

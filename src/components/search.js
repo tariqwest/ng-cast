@@ -1,5 +1,4 @@
 angular.module('video-player')
-
 .directive('search', function() {
   return {
     templateUrl: 'src/templates/search.html',
@@ -10,7 +9,10 @@ angular.module('video-player')
     scope: {
       searchInput: '=',
       searchByEnterKeyPress: '=',
-      search: '='
+      search: '=',
+      result: '=',
+      videos: '=',
+      currentVideo: '='
     }
   };
 });
